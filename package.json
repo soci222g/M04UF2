@@ -1,0 +1,22 @@
+{
+  "name": "m04uf2",
+  "version": "1.0.0",
+  "description": "ejercicio de la asignatura",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soci222g/M04UF2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soci222g/M04UF2/issues"
+  },
+  "homepage": "https://github.com/soci222g/M04UF2#readme",
+  "dependencies": {
+    "mongodb": "^5.0.1"
+  }
+}
