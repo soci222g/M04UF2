@@ -3,8 +3,6 @@ import React from 'react';
 
 class CountButton extends React.Component{
 
-	render(){
-
 	constructor(props){
 	
 		super(props);
@@ -12,15 +10,19 @@ class CountButton extends React.Component{
 			contador: 0
 		};
 
-		
-
-
 	}
-
+		render(){
 		return (
 
-		<button onClick={() => alert("oli")  }>Habla</button>
-
+			<section>
+			<p>{this.state.contador}</p>
+			<button type="button" onClick={() => {
+				this.setState({
+					contador: this.state.contador+1
+				});
+			  }
+			}>cuenta</button>
+			</section>
 		);
 
 	}
