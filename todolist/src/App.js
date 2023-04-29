@@ -22,7 +22,7 @@ class App extends React.Component{
   }
 
   removeTask = (num_task) => {
-  	this.state.tasklist.splaice(num_task, 1);
+  	this.state.tasklist.splice(num_task, 1);
 
 	this.setState({
 		tasklist: this.state.tasklist
@@ -53,7 +53,7 @@ class App extends React.Component{
 		>
 	   	<Paper elevation={3}>
 		  <Title text="TODO APP 2000"/>
-	  	  <TasckForm onAddTask={this.addTask}/>
+	 	        <TasckForm onAddTask={this.addTask}/>
 				<TasckList list={this.state.tasklist} onRemoveTask={this.removeTask}/>
 	 		<p>number of tascks to do <strong>{this.state.tasklist.length}</strong></p> 	 
  	  	</Paper>

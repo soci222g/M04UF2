@@ -1,14 +1,14 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import List from '@mui/material/List';
+
 
 class  TasckFrom extends React.Component{
 
 	constructor(props){
 	super(props);
 		this.state = {
-	items: this.props.list	
+			task: ""	
 	};
 }
 
@@ -24,8 +24,8 @@ class  TasckFrom extends React.Component{
 		}} placeholder="escrive lo que sea"/></p>
 		
 		<Button variant='contained'type="button" onClick={() => {	
-		if (this.state.task.trim() == ""){
-			this.setSatate({
+		if (this.state.task.trim() === ""){
+			this.setState({
 			task: ""
 			});
 
