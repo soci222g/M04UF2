@@ -1,5 +1,3 @@
-
-
 import Title from './Title';
 import TasckForm from './TasckForm';
 import TasckList from './TasckList';
@@ -51,8 +49,12 @@ class App extends React.Component{
 		}}
 
 		>
-	   	<Paper elevation={3}>
-		  <Title text="TODO APP 2000"/>
+	   	<Paper elevation={3}
+		sx={{
+			padding: '10px'
+			}}
+		>
+		  <Title text="TO DO APP 2000"/>
 	 	        <TasckForm onAddTask={this.addTask}/>
 				<TasckList list={this.state.tasklist} onRemoveTask={this.removeTask}/>
 	 		<p>number of tascks to do <strong>{this.state.tasklist.length}</strong></p> 	 
