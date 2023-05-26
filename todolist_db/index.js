@@ -59,4 +59,5 @@ http.createServer(function (request, response) {
 			let itemsJson = JSON.stringify(items);
 		 	response.end(itemsJson);
 		 });
-}).listen(8080);
+}).listen(3000);
+	

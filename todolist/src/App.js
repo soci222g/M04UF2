@@ -6,8 +6,11 @@ import './TODO.css';
 import React from 'react';
 
 import Paper from '@mui/material/Paper';
-
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import Badge from '@mui/material/Badge';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+
 
 class App extends React.Component{ 
   constructor (props) {
@@ -15,8 +18,8 @@ class App extends React.Component{
 
 	this.state = {
 	tasklist: [],
-	tasklistID[],
-	tasklistTime[]
+	tasklistID: [],
+	tasklistTime: []
 	};
 
   }
@@ -26,10 +29,10 @@ class App extends React.Component{
 	this.timePoint();
   }
 
-  timePoint() = () => {
-		fetch('http://192.168.1.139', { method: "GET"})
+  timePoint = () => {
+		fetch('http://192.168.1.139:3000', { method: "GET"})
 			.then(response => response.json())
-		.then(info => this.createTasckList(data));
+		.then(info => this.createTasckList(info));
   }
 
 createTasklist = (list) => {
@@ -40,8 +43,10 @@ createTasklist = (list) => {
 
 
 	if (list.length <= 0) {
+	
+		console.log("no hay nada");
 		return;
-	}
+}
 	
 	for (let i = 0; i < list.length; i++) {
 		this.state.tasklistID.unshift(list[i]._id);
@@ -58,25 +63,25 @@ createTasklist = (list) => {
 
   addTask = (task) => {
 
- 	fetch('http://192.168.1.37:8080', {
+ 	fetch('http://192.168.1.139:3000', {
 		method: "POST",
 		body: '{"task":"' + task + '", "remove": "false"}'
 	})
 		.then(response => response.json())
-		.then(data => this.fetchData());
+		.then(info => this.fetchData());
 }
 
  removeTask = (task) => {
   	
 	fetch("192.168.1.139:3000", {
 			method: "POST",
-			body: '{"task":"' + task + '", "remove": "true"}'
+			body: '{"task":"' + task + '", "remove": "false"}'
 		})
 			.then(response => response.json)
 			.then(info => this.timePoint());
 	}
 
-
+render(){
 	 return (
 	  <Box
 	  	sx={{
@@ -96,7 +101,7 @@ createTasklist = (list) => {
 		  <Title text="TO DO APP 2000"/>
 	 	        <TasckForm onAddTask={this.addTask}/>
 				<TasckList list={this.state.tasklist} onRemoveTask={this.removeTask}/>
-	 		<p>number oftask tascks to do <strong>{this.state.tasklist.length}</strong></p> 	 
+				<p>number oftask tascks to do <strong>{this.state.tasklist.length}</strong></p> 
  	  	</Paper>
 	  </Box>
  		 );
