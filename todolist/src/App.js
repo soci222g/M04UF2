@@ -7,9 +7,9 @@ import React from 'react';
 
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
-import Badge from '@mui/material/Badge';
-import AnnouncementIcon from '@mui/icons-material/Announcement';
+
+
+
 
 
 class App extends React.Component{ 
@@ -43,8 +43,7 @@ createTasklist = (list) => {
 
 
 	if (list.length <= 0) {
-	
-		console.log("no hay nada");
+		
 		return;
 }
 	
@@ -73,11 +72,11 @@ createTasklist = (list) => {
 
  removeTask = (task) => {
   	
-	fetch("192.168.1.139:3000", {
+	fetch('http://192.168.1.139:3000', {
 			method: "POST",
 			body: '{"task":"' + task + '", "remove": "false"}'
 		})
-			.then(response => response.json)
+			.then(response => response.json())
 			.then(info => this.timePoint());
 	}
 

@@ -11,6 +11,7 @@ let collection;
 async function dbConnect() {
 	await client.connect();
 
+	  console.log('Connected successfully to server');
 	db = client.db(dbName);
 	collection = db.collection("tasks");
 
@@ -34,7 +35,7 @@ http.createServer(function (request, response) {
 
 	 request.on('info', dataChunck => info += dataCunck);
 	 request.on('end', () => {
-			info = JSON.parse(data);
+			info = JSON.parse(info);
 
 			if (info.remove == "false"){
 				let date = new date(date.now());
@@ -42,13 +43,13 @@ http.createServer(function (request, response) {
 
 				collection.insertOne({"tasks": info.task, "time": date.toLocaleDateString('es-ES', options)});
 
-				collection.find({"task": data.task}).limit(1).toArray()
+				collection.find({"task": info.task}).limit(1).toArray()
 						.then(task => {
 							response.end(JSON.sringlify(task));
 						});
 					}
 				else {
-				collection.deleteOne({"task": info.task});
+				collection.deleteOne({"tasks": info.task});
 				}
 
 				});
