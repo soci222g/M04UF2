@@ -30,55 +30,53 @@ class App extends React.Component{
   }
 
   timePoint = () => {
-		fetch('http://192.168.1.139:3000', { method: "GET"})
+		fetch('http://192.168.1.139:8080', { method: "GET"})
 			.then(response => response.json())
-		.then(data => this.createTascklist(data));
+		.then(info => this.createTascklist(info));
   }
 
-createTasklist = (list) => {
-
+createTascklist = (list) => {
+console.log(list);
 	this.state.tasklistID = [];
 	this.state.tasklist = [];
 	this.state.tasklistTime = [];
 
 
-	if (list.length <= 0) {
-		
+	if (list.length < 0) {
+		console.log("tonot");
 		return;
 }
 	
 	for (let i = 0; i < list.length; i++) {
-		this.state.tasklistID.unshift(list[i]._id);
+		
 		this.state.tasklist.unshift(list[i].tasks);
 		this.state.tasklistTime.unshift(list[i].time);
 	}
 	this.setState ({
-		tasklistID: this.state.tasklistID,
 		tasklist: this.state.tasklist,
-		tasklistTime: this.state.tasklistTime
+		tasklistTime: this.state.tasklistTime,
 	});
-
 }
 
   addTask = (task) => {
 
- 	fetch('http://192.168.1.139:3000', {
+ 	fetch('http://192.168.1.139:8080', {
 		method: "POST",
 		body: '{"task":"' + task + '", "remove": "false"}'
 	})
 		.then(response => response.json())
-		.then(data => this.timePoint());
-console.log(task);
+		.then(info => this.timePoint());
+		console.log(task);
 }
 
  removeTask = (task) => {
   	
-	fetch('http://192.168.1.139:3000', {
+	fetch('http://192.168.1.139:8080', {
 			method: "POST",
 			body: '{"task":"' + task + '", "remove": "true"}'
 		})
 			.then(response => response.json())
-			.then(data => this.timePoint());
+			.then(info => this.timePoint());
 	}
 
 render(){
