@@ -38,6 +38,7 @@ http.createServer(function (request, response) {
 			info = JSON.parse(info);
 
 			if (info.remove == "false"){
+				console.log("Task deleted: " + data);
 				let date = new date(date.now());
 				let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };				
 

@@ -18,7 +18,6 @@ class App extends React.Component{
 
 	this.state = {
 	tasklist: [],
-	tasklistID: [],
 	tasklistTime: []
 	};
 
@@ -36,8 +35,7 @@ class App extends React.Component{
   }
 
 createTascklist = (list) => {
-console.log(list);
-	this.state.tasklistID = [];
+
 	this.state.tasklist = [];
 	this.state.tasklistTime = [];
 
