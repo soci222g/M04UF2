@@ -10,20 +10,24 @@ class TasckList  extends React.Component{
 		};
 	}
 
-	render(){
+	itemList = () => {
 
 		let counter = -1;
-		const tasks = this.state.items.map( task => {
+		let tasks = this.props.list.map( task => {
 		counter++;
 		return(
-		<TasckItem text = {task} num_task={counter} onRemoveTask={this.props.onRemoveTask}/>
+			<TasckItem  key={counter} text={task} time={this.props.listTime[counter]} onDeleteTask={this.props.onDeleteTask}/>	
 		);
 		});
+		return tasks;
+		}
+ render(){
+	const tasks = this.itemList();
 
 		return(
-		<ol>
+		<List>
 			{tasks}
-		</ol>
+		</List>
 		);
 	
 	

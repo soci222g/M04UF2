@@ -30,9 +30,9 @@ class App extends React.Component{
   }
 
   timePoint = () => {
-		fetch('http://192.168.1.139:3000', { method: "GET"})
+		fetch('http://192.168.1.139:3001', { method: "GET"})
 			.then(response => response.json())
-		.then(info => this.createTasckList(info));
+		.then(data => this.createTasckList(data));
   }
 
 createTasklist = (list) => {
@@ -55,30 +55,30 @@ createTasklist = (list) => {
 	this.setState ({
 		tasklistID: this.state.tasklistID,
 		tasklist: this.state.tasklist,
-		taskListTime: this.state.tasklistTime
+		tasklistTime: this.state.tasklistTime
 	});
 
 }
 
   addTask = (task) => {
 
- 	fetch('http://192.168.1.139:3000', {
+ 	fetch('http://192.168.1.139:3001', {
 		method: "POST",
 		body: '{"task":"' + task + '", "remove": "false"}'
 	})
 		.then(response => response.json())
-		.then(info => this.timePoint());
+		.then(data => this.timePoint());
 console.log(task);
 }
 
  removeTask = (task) => {
   	
-	fetch('http://192.168.1.139:3000', {
+	fetch('http://192.168.1.139:3001', {
 			method: "POST",
 			body: '{"task":"' + task + '", "remove": "true"}'
 		})
 			.then(response => response.json())
-			.then(info => this.timePoint());
+			.then(data => this.timePoint());
 	}
 
 render(){

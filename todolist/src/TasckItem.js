@@ -44,7 +44,7 @@ class TasckItem  extends React.Component{
 	render(){
 		return (
 		<ListItem>
-			<ListItemText primary={this.props.text}/>
+			<ListItemText primary={this.props.text} secondary={this.props.time}/>
 				<Tooltip onClick={this.openDialog} title="Borrado">
 					<IconButton>
 						<DeleteIcon />

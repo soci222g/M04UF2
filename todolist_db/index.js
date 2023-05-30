@@ -39,13 +39,13 @@ http.createServer(function (request, response) {
 
 			if (info.remove == "false"){
 				let date = new date(date.now());
-				let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric'; minute: 'numeric' };				
+				let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };				
 
 				collection.insertOne({"tasks": info.task, "time": date.toLocaleDateString('es-ES', options)});
 
 				collection.find({"task": info.task}).limit(1).toArray()
 						.then(task => {
-							response.end(JSON.sringlify(task));
+							response.end(JSON.stringlify(task));
 						});
 					}
 				else {
