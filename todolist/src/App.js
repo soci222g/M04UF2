@@ -67,14 +67,15 @@ createTasklist = (list) => {
 		body: '{"task":"' + task + '", "remove": "false"}'
 	})
 		.then(response => response.json())
-		.then(info => this.fetchData());
+		.then(info => this.timePoint());
+console.log(task);
 }
 
  removeTask = (task) => {
   	
 	fetch('http://192.168.1.139:3000', {
 			method: "POST",
-			body: '{"task":"' + task + '", "remove": "false"}'
+			body: '{"task":"' + task + '", "remove": "true"}'
 		})
 			.then(response => response.json())
 			.then(info => this.timePoint());

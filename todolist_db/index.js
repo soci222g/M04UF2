@@ -31,9 +31,9 @@ http.createServer(function (request, response) {
 
 
 	if (request.methot == "POST"){
-	 let info
+	 let info = "";
 
-	 request.on('info', dataChunck => info += dataCunck);
+	 request.on('info', dataChunk => info += dataChunk);
 	 request.on('end', () => {
 			info = JSON.parse(info);
 
