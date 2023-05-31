@@ -24,7 +24,7 @@ class TasckItem  extends React.Component{
 console.log("que tal");
 }
 	removeTask = () => {
-		this.props.onRemoveTask(this.props.num_task);
+		this.props.onRemoveTask(this.props.text);
 
 		
 		this.closeDialog();
