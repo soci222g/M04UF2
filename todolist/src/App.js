@@ -96,7 +96,7 @@ render(){
 		>
 		  <Title text="TO DO APP 2000"/>
 	 	        <TasckForm onAddTask={this.addTask}/>
-				<TasckList list={this.state.tasklist} onRemoveTask={this.removeTask}/>
+				<TasckList list={this.state.tasklist} timeTask={this.state.tasklistTime} onRemoveTask={this.removeTask}/>
 				<p>number oftask tascks to do <strong>{this.state.tasklist.length}</strong></p> 
  	  	</Paper>
 	  </Box>
