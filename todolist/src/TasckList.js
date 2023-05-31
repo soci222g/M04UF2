@@ -11,12 +11,12 @@ class TasckList  extends React.Component{
 	}
 
 	itemList = () => {
-
+		
 		let counter = -1;
 		let tasks = this.props.list.map( task => {
 		counter++;
 		return(
-			<TasckItem  key={counter} text={task} time={this.props.listTime[counter]} onDeleteTask={this.props.onDeleteTask}/>	
+			<TasckItem  key={counter} text={task} time={this.props.listTime[counter]} onRemoveTask={this.props.onDeleteTask}/>	
 		);
 		});
 		return tasks;

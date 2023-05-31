@@ -30,7 +30,7 @@ class App extends React.Component{
 
   timePoint = () => {
 		fetch('http://192.168.1.139:8080', { method: "GET"})
-			.then(response => response.json())
+		.then(response => response.json())
 		.then(info => this.createTascklist(info));
   }
 
